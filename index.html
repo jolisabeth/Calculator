@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Make a Calculation!</h1>
+    <div class=calculator>
+        <div class=display>
+            <div class=calculation>Calcuation goes here</div>
+            <div class=result>Result goes here</div>
+        </div>
+        <div class=buttons>
+            <button class=clear>CE</button>
+            <button class=backspace>&#9003;</button>
+            <button class=percent>%</button>
+            <button class=operation>+</button>
+            <button class=number>7</button>
+            <button class=number>8</button>
+            <button class=number>9</button>
+            <button class=operation>-</button>
+            <button class=number>4</button>
+            <button class=number>5</button>
+            <button class=number>6</button>
+            <button class=operation>x</button>
+            <button class=number>1</button>
+            <button class=number>2</button>
+            <button class=number>3</button>
+            <button class=operation>/</button>
+            <button class=decimal>.</button>
+            <button class=number>0</button>
+            <button class=neg>+/-</button>
+            <button class=equals>=</button>
+        </div>
+    </div>
+
+
+    <script>
+        const displayCalc = document.querySelector(".calculation");
+        const displayResult = document.querySelector(".result");
+        // displayCalc.textContent = "This is blank"
+        // displayResult.textContent = "Make a Calculation"
+        const calculate = {};
+        document.querySelectorAll(".buttons").forEach(item =>
+            item.addEventListener("click", function(e) {
+                calculate.push(e.target.textContent)
+                display.textContent = calculate;
+        }));
+        
+        function add(a, b) {
+            return a + b;
+        }
+        function subtract(a, b){
+            return a - b;   
+        }
+        function multiply(a, b){
+            return a*b;
+        }
+        function divide(a, b) {
+            if (b == 0) return "You can't divide by zero";
+            return a/b;
+        }
+        function operate(operator, a, b) {
+            if (operator == "+") {
+                return add(a, b);
+            } else if (operator == "-") {
+                return subtract(a, b);
+            } else if (operator == "*") {
+                return multiply(a, b);
+            } else if (operator == "/") {
+                return divide(a, b);
+            } else{
+                return "Error";
+            }
+        }
+
+        console.log(calculate)
+
+    </script>
+</body>
+</html>
